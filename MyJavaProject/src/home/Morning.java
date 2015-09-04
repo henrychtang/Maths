@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Hashtable;
 import java.util.Random;
+import java.util.TreeMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,7 +39,7 @@ public class Morning {
 	   }
 	public void greetingString(){
 		  BufferedReader br;
-		  Hashtable<Integer, String> ht_greeting=new Hashtable<Integer, String>();
+		  TreeMap<Integer, String> ht_greeting=new TreeMap<Integer, String>();
 		try {
 			br = new BufferedReader(new FileReader("config/greeting.txt"));
 		        StringBuilder sb = new StringBuilder();

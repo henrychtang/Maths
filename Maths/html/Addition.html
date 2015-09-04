@@ -1,0 +1,29 @@
+<html ng-app="Maths">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+   <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>      
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-controller="MathsController as addition">
+      <pane title="Addition">
+<h2>{{addition.title}}<i class="icon-pencil"></h2>
+    <a href="#/new"><i class="icon-plus-sign"></i></a>
+    <table>
+ 	<form name="add">
+        <tr ng-repeat="number in addition.numbers">
+            <td> {{$index+1}})   </td>
+            <td>{{number.num1}} + {{number.num2}} = </td>
+            <td><input type="text" ng-model="userInput"  placeholder="Input Your Answer" size="10" 
+                       ng-blur="addition.updateStatus($index,userInput)">
+            <!-- input type="button" name="submit" value="sumbit" ng-click="addition.updateStatus($index,userInput)" --></td>
+            <td><span>{{todo.text}}{{number.status}}</span></td>
+        </tr> 	
+ 	</form>	
+    </table>
+    </pane>
+
+</body>
+</html>
+
+

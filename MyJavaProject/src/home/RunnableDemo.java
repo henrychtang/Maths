@@ -13,17 +13,19 @@ class RunnableDemo implements Runnable {
 	   }
 	   public void run() {
 		   log.info("Running " +  threadName );
+		  while(true){
 	      try {
 	         for(int i = 4; i > 0; i--) {
 	           	 log.info("My Thread: " + threadName + ", " + i);
 	           	 log.info("Do Smthg...");
 	       	            // Let the thread sleep for a while.
-	            Thread.sleep(50);
+	            Thread.sleep(3000);
 	         }
 	     } catch (InterruptedException e) {
 	    	 log.info("Thread " +  threadName + " interrupted.");
 	     }
-	      log.info("Thread " +  threadName + " exiting.");
+		  }
+	      //log.info("Thread " +  threadName + " exiting.");
 	   }
 	   
 	   public void start ()
