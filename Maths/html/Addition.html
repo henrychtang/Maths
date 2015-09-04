@@ -14,7 +14,7 @@
         <tr ng-repeat="number in addition.numbers">
             <td> {{$index+1}})   </td>
             <td>{{number.num1}} + {{number.num2}} = </td>
-            <td><input type="text" ng-model="userInput"  placeholder="Input Your Answer" size="10" 
+            <td><input type="text" ng-model="userInput"  placeholder="Input  Your Answer" size="10" 
                        ng-blur="addition.updateStatus($index,userInput)">
             <!-- input type="button" name="submit" value="sumbit" ng-click="addition.updateStatus($index,userInput)" --></td>
             <td><span>{{todo.text}}{{number.status}}</span></td>
