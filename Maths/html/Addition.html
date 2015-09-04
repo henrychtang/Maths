@@ -7,7 +7,7 @@
   </head>
   <body class="container" ng-controller="MathsController as addition">
       <pane title="Addition">
-<h2>{{addition.title}}<i class="icon-pencil"></h2>
+<H2>{{addition.title}}<i class="icon-pencil"></H2>
     <a href="#/new"><i class="icon-plus-sign"></i></a>
     <table>
  	<form name="add">
@@ -18,8 +18,18 @@
                        ng-blur="addition.updateStatus($index,userInput)">
             <!-- input type="button" name="submit" value="sumbit" ng-click="addition.updateStatus($index,userInput)" --></td>
             <td><span>{{todo.text}}{{number.status}}</span></td>
-        </tr> 	
+        </tr>        
+	
  	</form>	
+    </table>
+    <H2>Long Questions</H2>
+    <table>
+    	<tr ng-repeat="question in addition.questions">
+            <td> {{$index+1}})   </td>
+            <td>{{question.question}}</td>
+            <td><input type="text" ng-model="userInput"  placeholder="Input  Your Answer" size="10" ></td>
+            <td><span></span></td>
+        </tr> 
     </table>
     </pane>
 
