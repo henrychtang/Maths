@@ -14,7 +14,22 @@
         <tr ng-repeat="number in addition.numbers">
             <td> {{$index+1}})   </td>
             <td>{{number.num1}} + {{number.num2}} = </td>
-            <td></td>
+            <td>
+            <table>
+            	<tr>
+            		<td></td>
+            		<td><h2>{{number.num1}}</h2></td>
+            	</tr>
+            	<tr>
+            		<td><h2>+</h2></td>
+            		<td><h2>{{number.num2}}</h2></td>
+            	</tr>            	
+            	<tr>
+            		<td><h3>.</h3></td>
+            		<td><h3></h3></td>
+            	</tr>
+            </table>
+            </td>
             <td><span>{{todo.text}}{{number.status}}</span></td>
         </tr>        
 	
