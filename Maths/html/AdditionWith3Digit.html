@@ -9,13 +9,12 @@
       <pane title="Addition">
 <h2>{{addition.title}}<i class="icon-pencil"></h2>
     <a href="#/new"><i class="icon-plus-sign"></i></a>
-    <table>
+    <table border="1">
  	<form name="add">
         <tr ng-repeat="number in addition.numbers">
             <td> {{$index+1}})   </td>
             <td>{{number.num1}} + {{number.num2}} = </td>
-            <td><input type="text" ng-model="userInput"  placeholder="Input  Your Answer" size="10" 
-                       ng-blur="addition.updateStatus($index,userInput)"></td>
+            <td></td>
             <td><span>{{todo.text}}{{number.status}}</span></td>
         </tr>        
 	

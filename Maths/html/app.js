@@ -31,6 +31,6 @@ var source=[
 ];
 var longQuestion=[
     {question:"Anson has 24 apples. Audrey has 12 oranges. How many fruits are there totally?", answer:123},
-    {question:"Johon has 35 candies. He gives 7 to Susan.  How many candies he left?", answer:123}
+    {question:"Johon has 35 candies. He gives 7 to Susan.  How many candies he left?", answer:123},
     {question:"Johon has 35 candies. He gives 7 to Susan.  How many candies he left?", answer:123}
 ];
