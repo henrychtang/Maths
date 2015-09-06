@@ -1,9 +1,10 @@
 var app = angular.module('Maths', []);
 
 app.controller('MathsController', function (){
-    this.title="Addition Test by AngularJS";
+    this.title="Multiplication Test by Tangs";
     this.numbers=source;
     this.questions=longQuestion;
+    this.rowSource=rowSource;
     this.answer = function(i){
       return this.numbers[i].num1 +  this.numbers[i].num2;
 };
@@ -20,17 +21,66 @@ this.updateStatus=function(i, userInput){
     };    
   });
 
-var source=[
-    {num1:59, num2:48, status:""},
-    {num1:95, num2:82, status:""},
-    {num1:37, num2:24, status:""},
-	{num1:83, num2:46, status:""},
-	{num1:32, num2:48, status:""},
-	{num1:24, num2:52, status:""},
-	{num1:23, num2:74, status:""}
-];
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive) Using
+ * Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+source=[];
+min=100;
+max=200;
+
+for (i = 0; i <3; i++){
+	singleObj = {};
+	singleObj['num1'] = getRandomInt(min, max) ;
+	singleObj['num2'] = getRandomInt(min, max) ;
+	source.push(singleObj);
+}
+
+
+
+function generateQuestions(rowIndex,cellNumber){
+	var columnSource = [];
+	min=300;
+	max=999;
+	for (i = 0; i < cellNumber; i++){
+		singleObj = {};
+		singleObj['questionNumber']=rowIndex*cellNumber+i+1;
+		singleObj['num1'] = getRandomInt(min, max) ;
+		singleObj['num2'] = getRandomInt(0, 9) ;
+		singleObj['answer']=singleObj['num1']*singleObj['num2'];
+		columnSource.push(singleObj);
+	}
+	return columnSource;
+}
+
+
+var rowSource=[];
+for (j=0 ; j<6 ; j++)
+{
+	rowObj={};
+	rowObj['rowIndex']=j;
+	rowObj['columns']=generateQuestions(j,5);
+	rowSource.push(rowObj);
+
+	console.log(j);
+	//console.log(rowSource);
+	
+}
+
+
+console.log(source);
+console.log(rowSource);
+
 var longQuestion=[
-    {question:"Anson has 24 apples. Audrey has 12 oranges. How many fruits are there totally?", answer:123},
-    {question:"Johon has 35 candies. He gives 7 to Susan.  How many candies he left?", answer:123},
-    {question:"Johon has 35 candies. He gives 7 to Susan.  How many candies he left?", answer:123}
+    {question:"Anson has 24 apples. Audrey has 12 oranges. How many fruits are there totally?", answer:123}
 ];
