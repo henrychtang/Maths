@@ -50,13 +50,13 @@ for (i = 0; i <3; i++){
 
 function generateQuestions(rowIndex,cellNumber){
 	var columnSource = [];
-	min=300;
-	max=999;
+	min=1;
+	max=15;
 	for (i = 0; i < cellNumber; i++){
 		singleObj = {};
 		singleObj['questionNumber']=rowIndex*cellNumber+i+1;
 		singleObj['num1'] = getRandomInt(min, max) ;
-		singleObj['num2'] = getRandomInt(0, 9) ;
+		singleObj['num2'] = getRandomInt(1, 9) ;
 		singleObj['answer']=singleObj['num1']*singleObj['num2'];
 		columnSource.push(singleObj);
 	}
@@ -69,7 +69,7 @@ for (j=0 ; j<6 ; j++)
 {
 	rowObj={};
 	rowObj['rowIndex']=j;
-	rowObj['columns']=generateQuestions(j,5);
+	rowObj['columns']=generateQuestions(j,8);
 	rowSource.push(rowObj);
 
 	console.log(j);

@@ -1,0 +1,77 @@
+<html ng-app="Maths">
+  <head>
+    <link rel="stylesheet" type="text/css" href="customised.css" />
+  
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+   <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>      
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-controller="MathsController as addition">
+      <pane title="Addition">
+<h3>{{addition.title}}<i class="icon-pencil"></h3>
+    <a href="#/new"><i class="icon-plus-sign"></i></a>
+
+    <table border="0">
+ 	<form name="add">
+        <tr ng-repeat="row in addition.rowSource">
+            <td valign="top"></td>
+            <td >&nbsp;&nbsp;</td>
+            
+            <td ng-repeat="cell in row.columns">
+            <table>
+            	<tr class="small">
+            		<td></td>
+            		<td>{{cell.questionNumber}})</td>
+            		<td></td>
+            		<td></td>
+            	</tr>
+            	<tr class="big">
+            		<td width="100"></td>
+            	    <td valign="top" width='100'></td>
+            		<td width="10"></td>
+            		<td align="right">{{cell.num1}}</td>
+            	</tr>
+            	<tr class="big" >
+            		<td></td>
+
+            		<td></td>
+            		<td class="bottomline">x</td>
+            		
+            		<td class="bottomline" align="right">{{cell.num2}}</td>
+            	</tr>            	
+            	<tr>
+            		<td></td>
+            		<td></td>
+            		<td><h3>&nbsp;</h3></td>
+            		<td><h3></h3></td>
+            	</tr>
+            </table>           	
+            </td>
+            <td>
+ 			</td>
+        </tr>        
+ 	</form>	
+    </table>
+
+  
+    <H3>Long Questions</H3>
+    <table class='big'>
+    	<tr ng-repeat="question in addition.questions">
+            <td valign='top'> {{$index+1}})   </td>
+            <td>{{question.question}}</td>
+            <td class="bottomline" width='25%'></td>
+            <td><span></span></td>
+        </tr> 
+    </table>
+    </pane>
+
+<table class="tiny">
+<tr ng-repeat="row in addition.rowSource">
+         <td ng-repeat="cell in row.columns">({{cell.questionNumber}}) {{cell.answer}}; </td>
+</tr>
+</table>
+</body>
+</html>
+
+
