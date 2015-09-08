@@ -5,6 +5,7 @@ app.controller('MathsController', function (){
     this.numbers=source;
     this.questions=longQuestion;
     this.rowSource=rowSource;
+    this.answers=answerString;
     this.answer = function(i){
       return this.numbers[i].num1 +  this.numbers[i].num2;
 };
@@ -50,13 +51,13 @@ for (i = 0; i <3; i++){
 
 function generateQuestions(rowIndex,cellNumber){
 	var columnSource = [];
-	min=1;
-	max=15;
+	min=5;
+	max=9;
 	for (i = 0; i < cellNumber; i++){
 		singleObj = {};
 		singleObj['questionNumber']=rowIndex*cellNumber+i+1;
 		singleObj['num1'] = getRandomInt(min, max) ;
-		singleObj['num2'] = getRandomInt(1, 9) ;
+		singleObj['num2'] = getRandomInt(2, 9) ;
 		singleObj['answer']=singleObj['num1']*singleObj['num2'];
 		columnSource.push(singleObj);
 	}
@@ -65,18 +66,25 @@ function generateQuestions(rowIndex,cellNumber){
 
 
 var rowSource=[];
-for (j=0 ; j<6 ; j++)
+for (j=0 ; j<15 ; j++)
 {
 	rowObj={};
 	rowObj['rowIndex']=j;
-	rowObj['columns']=generateQuestions(j,8);
+	rowObj['columns']=generateQuestions(j,4);
 	rowSource.push(rowObj);
-
-	console.log(j);
-	//console.log(rowSource);
 	
 }
-
+answerString="";
+for(i=0; i<rowSource.length; i++){
+	questions=rowSource[i]['columns'];
+	console.log(questions);	
+	for(j=0;j<questions.length;j++){
+		question=questions[j];
+		answerString=answerString+" ; "+question['questionNumber']+") "+ question['answer'];
+		
+	}
+}
+console.log(answerString);
 
 console.log(source);
 console.log(rowSource);
