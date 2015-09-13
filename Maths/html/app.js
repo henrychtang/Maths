@@ -6,6 +6,7 @@ app.controller('MathsController', function (){
     this.questions=longQuestion;
     this.rowSource=rowSource;
     this.answers=answerString;
+    this.date=(new Date()).toDateString();
     this.answer = function(i){
       return this.numbers[i].num1 +  this.numbers[i].num2;
 };
@@ -51,13 +52,13 @@ for (i = 0; i <3; i++){
 
 function generateQuestions(rowIndex,cellNumber){
 	var columnSource = [];
-	min=5;
+	min=4;
 	max=9;
 	for (i = 0; i < cellNumber; i++){
 		singleObj = {};
 		singleObj['questionNumber']=rowIndex*cellNumber+i+1;
 		singleObj['num1'] = getRandomInt(min, max) ;
-		singleObj['num2'] = getRandomInt(2, 9) ;
+		singleObj['num2'] = getRandomInt(4, 9) ;
 		singleObj['answer']=singleObj['num1']*singleObj['num2'];
 		columnSource.push(singleObj);
 	}
