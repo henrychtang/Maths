@@ -3,23 +3,15 @@
 <head>
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=1200px, initial-scale=1">
 <link rel="stylesheet" href="print.css">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
-
 </head>
 <body ng-controller="MathsController as addition">
-
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -42,7 +34,6 @@
 	<br>
 	<br>
 	<div class="container">
-
 		<h3 align="center">
 			{{addition.title}}<i class="icon-pencil">
 		</h3>
@@ -52,20 +43,18 @@
 			everyday.</div>
 		<div class="row" ng-repeat="row in addition.rowSource">
 			<div class="col-sm-3" ng-repeat="cell in row.columns">
-				<h4>{{cell.questionNumber}}) {{cell.num1}} x {{cell.num2}} =</h4>
+				<h4>
+					<small>{{cell.questionNumber}})</small> {{cell.num1}} x
+					{{cell.num2}} =
+				</h4>
 			</div>
 		</div>
-
 		<form role="form">
 			<div class="form-group">
 				<label for="comment">Comment:</label>
 				<textarea class="form-control" rows="5" id="comment"></textarea>
 			</div>
 		</form>
-
-
 	</div>
-
-
 </body>
 </html>

@@ -3,23 +3,15 @@
 <head>
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=1200px, initial-scale=1">
 <link rel="stylesheet" href="print.css">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="angular.min.js"></script>
 <script type="text/javascript" src="divisionapp.js"></script>
-
 </head>
 <body ng-controller="MathsController as addition">
-
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -33,7 +25,6 @@
 					<li><a href="viewMultiplicationH.html">Multiplication</a></li>
 					<li><a href="viewMultiplicationUsingBootstrap.html">M2</a></li>
 					<li class="active"><a href="viewDivisionUsingBootstrap.html">D2</a></li>
-						
 					<li><a href="PersistantTextArea.html">Persistent Text Area</a></li>
 				</ul>
 			</div>
@@ -42,30 +33,22 @@
 	<br>
 	<br>
 	<div class="container">
-
-		<h3 align="center">
-			Division Test by Tangs<i class="icon-pencil">
-		</h3>
+		<h3 align="center">Division Test by Tangs<i class="icon-pencil"></h3>
 		<div class="small">{{addition.date}}</div>
 		<div class="alert alert-info">To make your brain always fit for
 			calculations, the best way is to keep yourself working on numbers
 			everyday.</div>
 		<div class="row" ng-repeat="row in addition.rowSource">
 			<div class="col-sm-3" ng-repeat="cell in row.columns">
-				<h5>{{cell.questionNumber}})</h5> <h4>{{cell.answer}} &#247; {{cell.num2}} =</h4>
+				<h4><small>{{cell.questionNumber}})</small> <code>{{cell.answer}} &#247; {{cell.num2}} =</code></h4>
 			</div>
 		</div>
-
 		<form role="form">
 			<div class="form-group">
 				<label for="comment">Comment:</label>
 				<textarea class="form-control" rows="5" id="comment"></textarea>
 			</div>
 		</form>
-
-
 	</div>
-
-
 </body>
 </html>

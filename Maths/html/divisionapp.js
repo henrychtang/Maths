@@ -6,7 +6,7 @@ app.controller('MathsController', function (){
     this.questions=longQuestion;
     this.rowSource=rowSource;
     this.answers=answerString;
-    this.date=(new Date()).toDateString();
+    this.date=(new Date()).toString();
     this.answer = function(i){
       return this.numbers[i].num1 +  this.numbers[i].num2;
 };
