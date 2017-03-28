@@ -1,7 +1,7 @@
 var app = angular.module('Maths', []);
 
 app.controller('MathsController', function (){
-    this.title="Addition Exercise by Tangs";
+    this.title="Addition Exercise";
     this.rangeFrom=99;
     this.rangeTo=10;
     this.total=this.rangeFrom+this.rangeTo;

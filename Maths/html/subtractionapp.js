@@ -1,7 +1,7 @@
 var app = angular.module('Maths', []);
 
 app.controller('MathsController', function (){
-    this.title="Subtraction Exercise by Tangs";
+    this.title="Subtraction Exercise";
     this.numbers=source;
     this.questions=longQuestion;
     this.rowSource=rowSource;
