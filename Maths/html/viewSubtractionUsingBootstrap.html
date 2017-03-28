@@ -9,9 +9,9 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="angular.min.js"></script>
-<script type="text/javascript" src="divisionapp.js"></script>
+<script type="text/javascript" src="subtractionapp.js"></script>
 </head>
-<body ng-controller="MathsController as addition">
+<body ng-controller="MathsController as ctrl">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -21,10 +21,10 @@
 				<ul class="nav navbar-nav">
 					<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="viewAdditionUsingBootstrap.html">Addition</a></li>
-					<li><a href="viewSubtractionUsingBootstrap.html">Subtraction</a></li>
+					<li class="active"><a href="viewSubtractionUsingBootstrap.html">Subtraction</a></li>
 					<li><a href="viewMultiplicationH.html">Multiplication</a></li>
 					<li><a href="viewMultiplicationUsingBootstrap.html">M2</a></li>
-					<li class="active"><a href="viewDivisionUsingBootstrap.html">D2</a></li>
+					<li><a href="viewDivisionUsingBootstrap.html">D2</a></li>
 					<li><a href="PersistantTextArea.html">Persistent Text Area</a></li>
 					<!-- Trigger the modal with a button -->
 					<li><a data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog"></span></a> </li>
@@ -35,22 +35,21 @@
 	<br>
 	<br>
 	<div class="container">
-		<h3 align="center">Division Test by Tangs<i class="icon-pencil"></h3>
-		<div class="small">{{addition.date}}</div>
+		<h3 align="center">{{ctrl.title}}<i class="icon-pencil"></h3>
+		<div class="small">{{ctrl.date}}</div>
 		<div class="alert alert-info">To make your brain always fit for
 			calculations, the best way is to keep yourself working on numbers
 			everyday.</div>
-		<div class="row" ng-repeat="row in addition.rowSource">
+		<div class="row" ng-repeat="row in ctrl.rowSource">
 			<div class="col-sm-3" ng-repeat="cell in row.columns">
-				<h4><small>{{cell.questionNumber}})</small> <code>{{cell.answer}} &#247; {{cell.num2}} =</code></h4>
+				<h2><small>{{cell.questionNumber}})</small> <code>{{cell.num1}} - {{cell.num2}} =</code></h2>
 			</div>
 		</div>
-		<form role="form">
-			<div class="form-group">
-				<label for="comment">Comment:</label>
-				<textarea class="form-control" rows="5" id="comment"></textarea>
-			</div>
-		</form>
+		<p>.
+		<p>.
+		<p>.
+		<p>.
+	<div class="footer"><small>{{ctrl.answers}}</small></div>	
 	</div>
 </body>
 </html>

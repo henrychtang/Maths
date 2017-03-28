@@ -1,19 +1,19 @@
 var app = angular.module('Maths', []);
 
 app.controller('MathsController', function (){
-    this.title="Multiplication Test by Tangs";
+    this.title="Subtraction Exercise by Tangs";
     this.numbers=source;
     this.questions=longQuestion;
     this.rowSource=rowSource;
     this.answers=answerString;
-    this.date=(new Date()).toDateString();
+    this.date=(new Date()).toString();
     this.answer = function(i){
       return this.numbers[i].num1 +  this.numbers[i].num2;
 };
           
 this.updateStatus=function(i, userInput){
     inputValue=userInput;
-    answer= this.numbers[i].num1 +  this.numbers[i].num2;
+    answer= this.numbers[i].num1 -  this.numbers[i].num2;
     if (inputValue=="")
         this.numbers[i].status= "";
     else if (inputValue==answer)
@@ -52,14 +52,15 @@ for (i = 0; i <3; i++){
 
 function generateQuestions(rowIndex,cellNumber){
 	var columnSource = [];
-	min=2;
-	max=9;
+	min=10;
+	max=100;
 	for (i = 0; i < cellNumber; i++){
 		singleObj = {};
 		singleObj['questionNumber']=rowIndex*cellNumber+i+1;
-		singleObj['num1'] = getRandomInt(min, max) ;
-		singleObj['num2'] = getRandomInt(2, 9) ;
-		singleObj['answer']=singleObj['num1']*singleObj['num2'];
+		tempNumber=getRandomInt(min, max) ;
+		singleObj['num1'] = tempNumber
+		singleObj['num2'] = getRandomInt(min, tempNumber) ;
+		singleObj['answer']=singleObj['num1']-singleObj['num2'];
 		columnSource.push(singleObj);
 	}
 	return columnSource;

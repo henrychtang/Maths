@@ -1,16 +1,32 @@
 var app = angular.module('Maths', []);
 
 app.controller('MathsController', function (){
-    this.title="Multiplication Test by Tangs";
-    this.numbers=source;
+    this.title="Addition Exercise by Tangs";
+    this.rangeFrom=99;
+    this.rangeTo=10;
+    this.total=this.rangeFrom+this.rangeTo;
+    //this.numbers=source;
     this.questions=longQuestion;
     this.rowSource=rowSource;
-    this.answers=answerString;
-    this.date=(new Date()).toDateString();
-    this.answer = function(i){
-      return this.numbers[i].num1 +  this.numbers[i].num2;
-};
-          
+    this.answers=prepareAnswerString(this.rowSource);
+    this.date=(new Date()).toString();
+    this.generate=function(){
+    	this.total=this.rangeFrom+this.rangeTo;
+    	
+    	this.rowSource=[];
+    	for (j=0 ; j<this.row ; j++)
+    	{
+    		rowObj={};
+    		rowObj['rowIndex']=j;
+    		rowObj['columns']=generateQuestions(j,this.column);
+    		this.rowSource.push(rowObj);
+    		
+    	}
+    	this.answers=prepareAnswerString(this.rowSource);
+    };
+
+    
+
 this.updateStatus=function(i, userInput){
     inputValue=userInput;
     answer= this.numbers[i].num1 +  this.numbers[i].num2;
@@ -37,29 +53,20 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-source=[];
-min=100;
-max=200;
 
-for (i = 0; i <3; i++){
-	singleObj = {};
-	singleObj['num1'] = getRandomInt(min, max) ;
-	singleObj['num2'] = getRandomInt(min, max) ;
-	source.push(singleObj);
-}
 
 
 
 function generateQuestions(rowIndex,cellNumber){
 	var columnSource = [];
-	min=2;
-	max=9;
+	min=10;
+	max=99;
 	for (i = 0; i < cellNumber; i++){
 		singleObj = {};
 		singleObj['questionNumber']=rowIndex*cellNumber+i+1;
 		singleObj['num1'] = getRandomInt(min, max) ;
-		singleObj['num2'] = getRandomInt(2, 9) ;
-		singleObj['answer']=singleObj['num1']*singleObj['num2'];
+		singleObj['num2'] = getRandomInt(10, 99) ;
+		singleObj['answer']=singleObj['num1']+singleObj['num2'];
 		columnSource.push(singleObj);
 	}
 	return columnSource;
@@ -67,7 +74,7 @@ function generateQuestions(rowIndex,cellNumber){
 
 
 var rowSource=[];
-for (j=0 ; j<15 ; j++)
+for (j=0 ; j<12 ; j++)
 {
 	rowObj={};
 	rowObj['rowIndex']=j;
@@ -75,20 +82,24 @@ for (j=0 ; j<15 ; j++)
 	rowSource.push(rowObj);
 	
 }
-answerString="";
-for(i=0; i<rowSource.length; i++){
-	questions=rowSource[i]['columns'];
+//answerString=prepareAnswerString();
+function prepareAnswerString(Source){
+	answer=""
+	for(i=0; i<Source.length; i++){
+	questions=Source[i]['columns'];
 	console.log(questions);	
 	for(j=0;j<questions.length;j++){
 		question=questions[j];
-		answerString=answerString+" ; "+question['questionNumber']+") "+ question['answer'];
+		answer=answer+" ; "+question['questionNumber']+") "+ question['answer'];
 		
 	}
 }
-console.log(answerString);
+	return answer;
 
-console.log(source);
-console.log(rowSource);
+}
+//console.log(answerString);
+//console.log(source);
+//console.log(rowSource);
 
 var longQuestion=[
     {question:"Anson has 24 apples. Audrey has 12 oranges. How many fruits are there totally?", answer:123}
